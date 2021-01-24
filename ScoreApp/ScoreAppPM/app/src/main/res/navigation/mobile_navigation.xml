@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_teams">
+
+    <fragment
+        android:id="@+id/navigation_teams"
+        android:name="com.pmproject.scoreapppm.ui.teams.TeamsFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_teams" >
+        <action
+            android:id="@+id/action_navigation_teams_to_navigation_score_count"
+            app:destination="@id/navigation_score_count" />
+        <action
+            android:id="@+id/action_navigation_teams_to_fragment_winner_history"
+            app:destination="@id/fragment_winner_history" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_score_count"
+        android:name="com.pmproject.scoreapppm.ui.scorecount.ScoreCountFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_score_count" >
+        <action
+            android:id="@+id/action_navigation_score_count_to_navigation_winner"
+            app:destination="@id/navigation_winner" />
+        <action
+            android:id="@+id/action_navigation_score_count_to_navigation_teams"
+            app:destination="@id/navigation_teams" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_winner"
+        android:name="com.pmproject.scoreapppm.ui.winner.WinnerFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_winner" >
+        <action
+            android:id="@+id/action_navigation_winner_to_fragment_winner_history"
+            app:destination="@id/fragment_winner_history" />
+        <action
+            android:id="@+id/action_navigation_winner_to_navigation_teams"
+            app:destination="@id/navigation_teams" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_winner_history"
+        android:name="com.pmproject.scoreapppm.ui.winner_history.FragmentWinnerHistory"
+        android:label="fragment_winner_history"
+        tools:layout="@layout/fragment_winner_history" >
+        <action
+            android:id="@+id/action_fragment_winner_history_to_navigation_teams"
+            app:destination="@id/navigation_teams" />
+    </fragment>
+</navigation>
